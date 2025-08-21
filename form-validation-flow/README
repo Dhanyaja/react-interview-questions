@@ -1,0 +1,12 @@
+Build a form validation flow
+
+- first name (required, min 3 chars)
+- last name (required, min 3 chars)
+- email (required, must be valid format)
+- password (required, min 6 chars)
+
+Requiredments:
+- validations hould happen as the user types
+- submit button should only be enabled when all fields are valid
+- provide visual feedback (e.g. red border for error, green checkmark for valid)
+- vanilla js or react

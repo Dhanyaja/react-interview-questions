@@ -1,0 +1,10 @@
+Initial setup:
+    Let an array of strings called fruits, for example: ["apple", "banana", "cherry", ...]
+    Display this list in the UI
+Search Input:
+    Use the provided input fields
+    As the user types into the input, filter the displayed list to include only those items that contain the input
+Real-time filteration:
+    The list should update as soon as the user types into the search box, without needing to submit
+No matches:
+    Display a friendly message if no items match the search term.

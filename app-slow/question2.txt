@@ -1,0 +1,6 @@
+How do you prevent a login page from being accessible after the user is logged in?
+
+1. use Protected Routes
+2. keep track of authentication state. store isAuthenticated in global state, change it when user is logged in.
+    make use of redux, or context
+3. Router (BrowserRoutes)

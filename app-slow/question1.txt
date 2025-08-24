@@ -1,0 +1,9 @@
+Your react app suddenly becomes slow after adding new feature. How do you find and fix the issue?
+
+1. Chrome devtools -- go to performance tab, check what is taking too much time
+2. React dev tools extension(chrome extension) -- unnecessary re-renders/infinite loop of re-renders
+3. useMemo, ReactMemo, and useCallback - 
+4. Virtualization - using packages like react window or react virtualized
+5. Avoid inline function/objects
+
+example: lets say an ecommerce website has around 10,000 products, here with virtualization the website won't lag.

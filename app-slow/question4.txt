@@ -1,0 +1,7 @@
+A component is fetching the same data multiple times unnecessarily. How to fix it?
+
+1. React Query - use react Query for caching data
+2. context/redux - store data in context/redux. if data is present it will not fetch again
+3. useMemo - if includes some calculations. ]
+
+example: lets say there is a dashboard and there are various cards, that are fetching data from user. Instead fetch data from global state and store it. pass it down to each component.

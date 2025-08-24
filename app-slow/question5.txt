@@ -1,0 +1,8 @@
+How do you optimize bundle size in large react app?
+
+1. code splitting - using react.lazy
+2. Tree Shaking - in vite/webpack
+    it removes unused imports
+3. dynamic imports - importing during run time
+4. compress assets - compress images, fonts 
+5. caching - if it is present on users device, dont ship it

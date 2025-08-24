@@ -1,0 +1,6 @@
+How to handle API error gracefully in the UI?
+
+1. try/catch - in catch write error message
+2. show retry message
+3. use toast notifications
+4. use error boundaries

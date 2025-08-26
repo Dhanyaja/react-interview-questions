@@ -1,0 +1,11 @@
+1. What are concurrent features in react and how do they help?
+
+Allows react to handle multiple things at parallel
+
+
+2. Explain react's batching behavior and what changed in react 18?
+
+Batching = grouping multiple updates together to avoid unnecessary re-renders
+
+In older versions, batching worked only in react events
+Now all updates are batched, even in async code

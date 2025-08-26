@@ -1,0 +1,37 @@
+1. How does suspense work, and what are some real use cases beyond lazy loading?
+
+suspense is like a pause button for components. it suspends part of UI until something s ready.
+
+use cases: 
+    1. lazy loading components
+    2. wait for data(react query, relay)
+    3. to avoid layout shift
+
+2. what is useImperativeHandle and when should you use it?
+
+used when a parent component wants to access something from the child component
+
+
+3. How do you optimize large lists in react?
+
+virtualization - only renders the items that are visible in the viewport 
+
+
+4. How does useRef differ from useState?
+
+useRef - value should change, but should not cause a re-render (mutable variables without re-render)
+useState - re-renders when value changes
+
+5. How does react handle hydration in SSR, and what problems can arise?
+
+hydration is the process react attaches event listeners and internal logic to server rendered HTML
+
+Problems:
+    - server-client HTML mismatch
+    - using window, math.random() during render
+    - different render outputs
+
+Fixes:
+    - avoid side effects in render
+    - use useEffect for browser only logic
+    - ensure consistent outputs

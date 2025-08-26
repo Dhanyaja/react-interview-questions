@@ -1,0 +1,10 @@
+How does react determine when to re-render a component?
+
+React re-renders a component when its state or props change.
+React re-renders when state, props, or context change, then uses the Virtual DOM diffing (Fiber) to update only what’s necessary in the real DOM.
+
+
+Optimizations:
+- use React.memo() to avoid unnecessary renders
+- useMemo and useCallback to cache values/functions
+- avoid inline objects/arrays in jsx

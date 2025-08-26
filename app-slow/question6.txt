@@ -1,0 +1,23 @@
+What is react fiber and how does it differ from the old reconciliation algorithm?
+
+Old react(stack based renderer)
+uses stack based rendering engine
+It couldn't pause once rendering started
+UI updated had to finish all at once
+It update takes time- the app will be frozen
+
+
+React fiber:
+Interruptible
+Breaks rendering into small chunks
+Priority based updates
+concurrent rendering
+supports suspense and lazy loading
+
+Benefits of fiber nodes: Fiber node is a js object that represents a component and its info (type, props, state, link to its parent/child/sibling)
+Fiber tree: A tree of fiber nodes (a map of component tree)
+
+
+Why is it better:
+Enables concurrent and interruptible rendering
+makes react smooth and responsive

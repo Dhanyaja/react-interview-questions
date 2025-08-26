@@ -1,0 +1,12 @@
+What is the difference between useMemo and useCallback, and when not to use them?
+
+useMemo - caches the result of the function
+useCallback - caches the function itself
+
+when sending any data from parent to child, memoize the child using useMemo or useCallback to prevent it from re-rendering unnecessarily.
+
+
+useMemo - for heavy calculations
+useCallback - stable function
+
+use them only when necessary as they also occupy some memory.

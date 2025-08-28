@@ -1,0 +1,27 @@
+Step 1: Understand the Problem
+
+If interviewer asks: “Build a Todo App”, clarify:
+Features required – Add, delete, mark complete, filter (completed/pending), maybe edit?
+Constraints – Time (usually 1–2 hrs), do they expect persistence (localStorage/API)?
+Tech – Just React or allowed to use Redux / external libs?
+Usually for a basic Todo app, React state (useState/useReducer) is more than enough.
+Redux is overkill unless they explicitly want to see state management skills.
+
+Step 2: Plan Your Approach (Explain to Interviewer)
+
+“I’ll use React functional components. I’ll keep the todos in state using useState. For larger apps, Redux or Context API could help, but since this is a small app, useState is clean and sufficient. I’ll structure the code so it’s easy to extend if needed.”
+
+Step 3: Build It Incrementally (Live Coding)
+
+MVP Features:
+Input box + Add button → add a todo.
+List todos → show text + status.
+Mark complete / delete functionality.
+(Optional if time) Filter: All / Active / Completed.
+
+Step 4: Explain Trade-offs (Super Important!)
+
+At the end, say:
+“I used useState since the state is local and simple.”
+“If this app scaled (e.g., multiple components needing todos), I’d consider useReducer, Context, or Redux.”
+“We could also persist data in localStorage or fetch from an API if required.”

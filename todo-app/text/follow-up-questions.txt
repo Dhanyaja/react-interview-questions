@@ -1,0 +1,25 @@
+1. How would you manage state if this app grows bigger?
+
+    “For a small app, useState is fine. But if multiple components need access to the todo state, I’d use Context + useReducer for predictable state updates. For even larger apps, Redux Toolkit is a good choice.”
+
+2. Can you add an edit feature for a Todo?
+
+    “Yes. I’d keep an isEditing flag or track the todo.id being edited. Then allow inline editing or open a small input.”
+
+3. How would you optimize performance if the list grows large?
+
+    Use React.memo on child components (TodoItem).
+    Use useCallback for handlers to prevent re-renders.
+    Virtualize large lists with react-window or react-virtualized.
+
+4. Can you implement filters like All / Active / Completed?
+
+    “Yes. I’d keep a filter state and derive the displayed list using todos.filter(...).”
+
+5. How would you test this app?
+
+    “I’d use React Testing Library with Jest. For example:
+        Verify a new todo is added when form is submitted.
+        Check that clicking delete removes an item.
+        Ensure filter buttons update visible todos correctly.”
+

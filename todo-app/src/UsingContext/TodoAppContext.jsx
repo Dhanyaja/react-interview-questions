@@ -1,27 +1,16 @@
-import React, { useState } from "react";
-import TodoList from "./TodoList";
+import React, { useContext, useState } from "react";
+import { TodoContext, TodoProvider } from "./TodoContext";
+import TodoListContext from "./TodoListContext";
 
-const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
+const TodoAppContentContext = () => {
+  const { dispatch } = useContext(TodoContext);
   const [input, setInput] = useState("");
 
   const addTodo = () => {
     const trimmed = input.trim();
     if (!trimmed) return;
-    setTodos([...todos, { id: Date.now(), text: trimmed, completed: false }]);
+    dispatch({ type: "ADD_TODO", payload: trimmed });
     setInput("");
-  };
-
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -33,6 +22,7 @@ const TodoApp = () => {
         fontFamily: "Arial, sans-serif",
       }}
     >
+      hello
       <h2 style={{ display: "flex", justifyContent: "center" }}>✅ Todo App</h2>
       <div style={{ display: "flex", marginBottom: "12px" }}>
         <input
@@ -45,10 +35,15 @@ const TodoApp = () => {
           Add
         </button>
       </div>
-
-      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <TodoListContext />
     </div>
   );
 };
 
-export default TodoApp;
+const TodoAppContext = () => (
+  <TodoProvider>
+    <TodoAppContentContext />
+  </TodoProvider>
+);
+
+export default TodoAppContext;

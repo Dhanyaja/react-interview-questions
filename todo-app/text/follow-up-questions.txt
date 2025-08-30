@@ -23,3 +23,57 @@
         Check that clicking delete removes an item.
         Ensure filter buttons update visible todos correctly.”
 
+6. Why did you use useReducer instead of useState here?
+
+    useState works fine for simple state (like a single todo list).
+    But when state management grows complex (multiple actions: add, delete, toggle, edit), useReducer makes it cleaner by centralizing logic in one reducer function.
+    It’s also easier to test and scale because all state transitions are in one place.
+
+7. What is the difference between useReducer and Redux?
+
+    useReducer is local to a component tree, while Redux is a global state management library with middleware, devtools, and predictable state management across the whole app.
+    Redux is great for large apps with complex data flow, while useReducer works well for small/medium isolated state logic.
+
+8. Can you explain how the reducer function works?
+
+    The reducer is a pure function: it takes the current state and an action, and returns a new state.
+    Example:
+        function reducer(state, action) {
+            switch(action.type) {
+                case "ADD_TODO": return [...state, action.payload];
+                case "REMOVE_TODO": return state.filter(todo => todo.id !== action.id);
+                default: return state;
+            }
+        }
+
+    It must not mutate the state directly.
+
+9. Why did you use useContext here?
+
+    To avoid prop drilling (passing state and dispatch down multiple levels).
+    With context, any component in the tree can access state and dispatch without manually threading props.
+
+10. What are the disadvantages of using Context API?
+
+    Re-renders: When context changes, all consuming components re-render (can affect performance in large apps).
+    No built-in devtools like Redux.
+    Not ideal for very large/complex applications with lots of shared state.
+
+11. What would happen if you had multiple contexts?
+
+    You can nest providers (e.g., one for AuthContext, one for ThemeContext, one for TodoContext).
+    But if it gets too many, code readability drops → that’s when Redux or Zustand might be a better fit.
+
+12. How would you persist todos across refresh?
+
+    By using localStorage inside a useEffect:
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(state));
+    }, [state]);
+    And initializing reducer with stored data if available.
+
+13. How would you optimize performance if the todo list grows very large?
+
+    Use React.memo on list items.
+    Split context into smaller contexts (e.g., one for todos, one for filters).
+    Use libraries like Zustand/Recoil if scaling further.

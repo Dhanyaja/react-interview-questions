@@ -5,6 +5,7 @@ const TodoList = ({ todos, onToggle, onDelete }) => {
   if (todos.length === 0) {
     return <p>No tasks yet 🚀</p>;
   }
+  console.log(todos)
   return (
     <ul>
       {todos.map((todo) => (

@@ -1,0 +1,3 @@
+Step 1: Explain Your Approach (What to Say in Interview)
+
+“I’ll keep the original dataset intact and maintain a search query in state. On every keystroke, I’ll filter the dataset based on the query. For performance, I can add debouncing so filtering doesn’t happen on every character immediately.”

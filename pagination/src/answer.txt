@@ -1,0 +1,3 @@
+Explaining thought process
+
+    “I’ll maintain a currentPage state and calculate a slice of the data based on that. The total number of pages will be Math.ceil(totalItems / itemsPerPage). I’ll memoize the current slice to avoid recomputation. I’ll also add Next/Prev buttons and handle edge cases (first/last page). For very large data, I’d consider server-side pagination or virtualization.”

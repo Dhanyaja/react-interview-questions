@@ -1,3 +1,32 @@
 Explaining thought process
 
     “I’ll maintain a currentPage state and calculate a slice of the data based on that. The total number of pages will be Math.ceil(totalItems / itemsPerPage). I’ll memoize the current slice to avoid recomputation. I’ll also add Next/Prev buttons and handle edge cases (first/last page). For very large data, I’d consider server-side pagination or virtualization.”
+
+1. How would you handle 10,000+ items efficiently?
+
+    “I wouldn’t load everything at once. I’d use server-side pagination with API queries (?page=2&limit=10). On the frontend, I’d show a loading state while fetching.”
+
+2. How would you add direct page navigation (jump to page)?
+
+    “Add page number buttons dynamically, or a <select> input. I’d also debounce direct input if typing a page number.”
+
+3. What if I want infinite scroll instead of pagination?
+
+    I’d use IntersectionObserver to detect when the user scrolls near the bottom, and then append more items.”
+
+4. How do you sync pagination with the URL (so refresh works)?
+
+    “Use React Router’s useSearchParams or useParams to keep ?page=2 in the URL, so refresh or shareable links work.”
+
+5. How would you design this as a reusable hook?
+
+    function usePagination(data, perPage) {
+        const [page, setPage] = useState(1);
+        const totalPages = Math.ceil(data.length / perPage);
+        const slice = useMemo(() => {
+        const start = (page - 1) * perPage;
+        return data.slice(start, start + perPage);
+    }, [page, data, perPage]);
+
+  return { page, setPage, slice, totalPages };
+}

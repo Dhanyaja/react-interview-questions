@@ -1,0 +1,28 @@
+1. How would you improve this?
+
+   -  Accessibility (a11y)
+        Add aria-expanded, aria-controls, role="region" for screen readers.
+        Support keyboard navigation (ArrowDown, ArrowUp).
+    - Performance
+        Memoize heavy content with React.memo if FAQ answers are large.
+        Virtualize if FAQ has hundreds of items.
+    - Animation
+        Add Framer Motion or CSS transitions for smooth expand/collapse.
+    - Reusability
+        Turn it into a generic <Accordion> component.
+        Make it controlled (parent manages open state) and uncontrolled (internal state) with props.
+    - Dynamic Data
+        Load FAQ items from API → show loading skeletons.
+
+2. Can only one item be open at a time?
+
+    "Yes, that’s why I designed it with allowMultiple. If false, it ensures a single open state.”
+
+3. How would you test it?
+
+    “I’d write unit tests with React Testing Library checking expand/collapse, keyboard accessibility, and aria attributes.”
+
+4. How would you handle deep nested accordions?
+
+    “I’d make Accordion recursive — an AccordionItem can accept children that are also Accordions.”
+

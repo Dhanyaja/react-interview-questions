@@ -1,0 +1,19 @@
+1. Why use useReducer instead of useState?
+
+    useReducer centralizes all state transitions, making logic predictable and easier to test. For complex state (like cart with multiple operations), it’s cleaner than scattering useState everywhere.
+
+2. How would you persist cart state?
+
+    Save cart to localStorage in a useEffect, and initialize reducer with saved state. For multi-device sync, persist to backend (via API).
+
+3. What about performance if cart grows very large?
+
+    Use memoized selectors for derived values (like total). For very large lists, use virtualization (react-window) to avoid rendering 1000+ items.
+
+4. How would you test this?
+
+    Unit test the reducer directly (pure functions → easy). Then test UI integration with React Testing Library by simulating add/remove clicks.
+
+5. How would you extend this to support discounts/taxes?
+
+    Add new fields in state (like discount, tax) and create new reducer actions (APPLY_DISCOUNT, SET_TAX). Keep pricing logic inside reducer for consistency.

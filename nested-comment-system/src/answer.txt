@@ -1,0 +1,24 @@
+1. How would you handle very deep nesting (10,000 comments)?
+
+    Performance optimization:
+    Use virtualization (e.g., react-window) to render only visible comments.
+    Or flatten the tree into a list with parent-child mapping.
+
+2. How would you support editing/deleting comments?
+
+    Add onEdit / onDelete props in Comment. Update state with recursive helper (similar to addReply).
+
+3. How would you fetch comments from an API (paginated)?
+
+    Replace initialComments with data from API. Support lazy loading for replies (expand thread → fetch from server).
+
+4. How would you prevent XSS attacks in user comments?
+
+    Sanitize user input before rendering (e.g., using DOMPurify) instead of rendering raw HTML.
+
+5. How would you test this?
+
+    With React Testing Library:
+    Render with initialComments.
+    Simulate reply → check new comment appears.
+    Simulate deep nesting → check structure.

@@ -1,0 +1,24 @@
+1. How would you pause auto-rotation when the user hovers over the card?
+
+    Add onMouseEnter={() => setPaused(true)} / onMouseLeave={() => setPaused(false)} and conditionally skip starting the interval.
+
+2. How would you animate transitions between testimonials?
+
+    Use framer-motion or CSS transitions:
+    opacity: 0 → 1 fade effect.
+    Slide effect with transform: translateX.
+
+3. How would you optimize if there are heavy images/videos in testimonials?
+
+    Lazy-load offscreen testimonials with loading="lazy" for images, or only render the active card ({testimonials[current]} instead of all cards).
+
+4. How would you make this controlled from the parent?
+
+    Accept current and onChange props. If given, rely on them instead of internal state.
+
+5. How would you test it?
+
+    With React Testing Library:
+    Assert the first testimonial is visible.
+    Simulate click on "Next" → assert the next testimonial appears.
+    Advance timers (jest.useFakeTimers()) → check auto-rotation works.

@@ -4,7 +4,7 @@ import Comment from "./Comment";
 const CommentList = ({ initialComments }) => {
   const [comments, setComments] = useState(initialComments);
 
-  console.log("init ", comments)
+  console.log("init ", comments);
 
   const handleReply = (parentId, text) => {
     // Recursive helper to add reply

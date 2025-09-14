@@ -1,0 +1,18 @@
+Q1. How would you make this component reusable across the app?
+
+    Extract Star into its own file, allow size, color, and defaultValue as props. Pass onChange callback to integrate with forms.
+
+Q2. How do you handle half-stars (like 3.5)?
+    
+    Track rating as a float (e.g., 3.5), add mouse position detection inside each star to decide whether to fill half or full. Can use two overlapping spans (one gold, one gray) with a clip-path for partial fill.
+
+Q3. How would you test this component?
+    
+    Use React Testing Library:
+    Simulate clicks → check if correct number of stars are filled.
+    Simulate hover → check preview.
+    Accessibility: check if screen readers detect stars (aria-label).
+
+Q4. How to persist rating (e.g., save to backend)?
+    
+    Pass an onChange prop, which makes an API call to save rating. Use optimistic updates for smooth UX.

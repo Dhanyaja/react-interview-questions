@@ -1,0 +1,19 @@
+Q1. How would you add a move history ("time travel") like in official React docs?
+
+    Store an array of history states, not just the latest squares. Allow users to jump back to a past state by updating the current move index.
+
+Q2. How would you make this multiplayer online?
+
+    Use WebSockets (e.g., Socket.IO) to sync state between two clients. The server maintains the board state and broadcasts updates.
+
+Q3. How would you improve accessibility?
+
+    Add ARIA roles (role="button", aria-label="Square 1"), and allow keyboard navigation (arrow keys, Enter to select).
+
+Q4. How to highlight the winning combination?
+
+    Modify calculateWinner to also return the winning line (indexes [a, b, c]), then conditionally style those squares with a highlight color.
+
+Q5. Can you generalize this to an NxN board (e.g., 4x4, 5x5)?
+
+    Instead of hardcoding lines, dynamically generate winning conditions based on board size using loops.

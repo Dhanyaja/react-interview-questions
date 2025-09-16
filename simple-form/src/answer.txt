@@ -1,0 +1,19 @@
+Q1. Why do we use controlled components instead of uncontrolled?
+
+    Controlled inputs (value bound to state) give full control, easier validation, and predictable state updates. Uncontrolled (ref) is fine for simple cases but doesn’t scale well.
+
+Q2. How would you handle large forms with many fields?
+    
+    Instead of multiple useState, store form state in an object (like above). For larger apps, use Reducer (useReducer) or Formik / React Hook Form for scalable form state & validation.
+
+Q3. How do you prevent unnecessary re-renders when typing in large forms?
+
+    Split form into smaller components, use React.memo and controlled updates (update only changed field). Alternatively, use useReducer for state updates.
+
+Q4. How would you make this form accessible?
+
+    Use label linked with htmlFor, keyboard navigation, and aria-invalid attributes for errors.
+
+Q5. How would you handle async validation (e.g., checking if email already exists)?
+
+    Run validation in useEffect with debouncing, or in handleSubmit before final submit. Example: API call to check uniqueness → update errors accordingly.

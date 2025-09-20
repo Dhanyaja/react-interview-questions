@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+
 export default function DigitalClock({
   timezone,
   hour12 = undefined,

@@ -1,0 +1,17 @@
+Q: Why align the first tick to the second boundary?
+A: If you just call setInterval(tick, 1000) at arbitrary time, updates will drift relative to real-world seconds (e.g., you might update at :00.324, :01.324...), producing a jumpy/incorrect UI when precise seconds matter. Aligning ensures updates occur exactly on :00 boundaries.
+
+Q: Why pause on document.hidden?
+A: Browsers throttle timers in background tabs; pausing prevents unnecessary CPU usage and avoids odd update behavior. It’s an optional optimization (pauseOnHide prop).
+
+Q: How would you handle time zones robustly across browsers?
+A: Use Intl.DateTimeFormat with timeZone. On environments missing IANA support, either polyfill Intl (e.g., @formatjs/intl-getcanonicallocales or full-icu for Node) or do manual UTC offsets (less ideal).
+
+Q: What about daylight savings and locale rules?
+A: Intl.DateTimeFormat handles DST and locale-specific formatting rules — that’s why we prefer it over manual math.
+
+Q: How to test this?
+A: Unit test formatting by mocking Date or injecting a deterministic time. Integration tests can mock requestAnimationFrame/setInterval with fake timers (Jest’s useFakeTimers) to assert ticks and visibility pause/resume.
+
+Q: Why not use requestAnimationFrame?
+A: rAF is for high-frequency visual updates (~60fps). For a once-per-second clock setInterval is appropriate. If you needed sub-second smoothness (like a ticking sweep second hand) rAF would be better.

@@ -1,0 +1,14 @@
+Q: Why use a Portal for modals?
+A: To avoid z-index and stacking context issues, modals are rendered at the root (document.body). This ensures consistent layering across the app.
+
+Q: How do you ensure accessibility for screen readers?
+A: Use role="dialog" and aria-modal="true". Manage focus so screen readers know the user is inside a modal.
+
+Q: How would you handle nested modals or multiple modals?
+A: Maintain a modal stack context. Trap focus only in the topmost modal and restore correctly when it closes.
+
+Q: How to test this modal?
+A: Use React Testing Library + userEvent. Verify that Tab cycles within modal, ESC closes modal, backdrop click closes modal, and focus returns after close.
+
+Q: Why not just hide modal with display: none?
+A: While visually hidden works, it doesn’t handle focus management, accessibility, or layering issues. Portals are the correct solution.
